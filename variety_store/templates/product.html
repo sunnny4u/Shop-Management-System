@@ -1,0 +1,576 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>হিসাব</title>
+{% endblock title %}
+
+{% block content %}
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/6f67239d65.js"></script>
+      <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}">
+
+
+      
+    </head>
+    <body>
+      <div class="row no-gutters" id="body">
+        <div class="col-12 col-sm-6 col-md-6" id="product_list">
+          <h1 class="product_heading pt-2"><strong>পণ্যের তালিকা</strong></h1>
+          <table class="item" align="text-center">
+            <tr>
+              <td>
+                <a href="#body"> <button id="caster_d" type="button" class="btn btn-dark" onclick="AddRow1('caster_d','icaster_d')" value="কাষ্টার ( dojon )">কাষ্টার ( dojon )</button></a><br>
+                <input id="icaster_d" class="price text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('icaster_d')">
+              </td>
+              <td>
+                <a href="#body"> <button id="caster_p" type="button" class="btn btn-dark" onclick="AddRow('caster_p','icaster_p')" value="কাষ্টার ( প্যাকেট )">কাষ্টার ( প্যাকেট )</button></a><br>
+                <input id="icaster_p" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('icaster_p')">
+              </td>
+              <td>
+                <a href="#body"><button id="polythene" type="button" class="btn btn-dark" onclick="AddRow('polythene','ipolythene')" value="পলেথিন" >পলেথিন</button></a><br>
+                <input id="ipolythene" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ipolythene')">
+              </td>
+              <td>
+                <a href="#body"><button id="kalo_jira" type="button" class="btn btn-dark" onclick="AddRow('kalo_jira','ikalo_jira')" value="কালাই জীরা" >কালাই জীরা</button></a><br>
+                <input id="ikalo_jira" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ikalo_jira')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="til" type="button" class="btn btn-dark" onclick="AddRow('til','itil')" value="তিল" >তিল</button></a><br>
+                <input id="itil" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('itil')">
+              </td>
+              <td>
+                <a href="#body"><button id="narkeli" type="button" class="btn btn-dark" onclick="AddRow('narkeli','inarkeli')" value="নারকেলী" >নারকেলী</button></a><br>
+                <input id="inarkeli" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('inarkeli')">
+              </td>
+              <td>
+                <a href="#body"><button id="badamer_bichi" type="button" class="btn btn-dark" onclick="AddRow('badamer_bichi','ibadamer_bichi')" value="বাদামের বিচি" >বাদামের বিচি</button></a><br>
+                <input id="ibadamer_bichi" class="text-center" style="width: 50%;margin-left: 25%;"" type="text" name="cd" value="50" onblur="PriceChange('ibadamer_bichi')">
+              </td>
+              <td>
+                <a href="#body"><button id="rice_b" type="button" class="btn btn-dark" onclick="AddRow('rice_b','irice_b')" value="চাল ( বস্তা )" >চাল ( বস্তা )</button></a><br>
+                <input id="irice_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('irice_b')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="rice_k" type="button" class="btn btn-dark" onclick="AddRow('rice_k','irice_k')" value="চাল ( খুচরা )" >চাল ( খুচরা )</button></a><br>
+                <input id="irice_k" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('irice_k')">
+              </td>
+              <td>
+                <a href="#body"><button id="770_saban" type="button" class="btn btn-dark" onclick="AddRow('770_saban','i770_saban')" value="৭৭০ সাবান" >৭৭০ সাবান</button></a><br>
+                <input id="i770_saban" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('i770_saban')">
+              </td>
+              <td>
+                <a href="#body"><button id="other_saban" type="button" class="btn btn-dark" onclick="AddRow('other_saban','iother_saban')" value="অন্যান্য সাবান" >অন্যান্য সাবান</button></a><br>
+                <input id="iother_saban" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iother_saban')">
+              </td>
+              <td>
+                <a href="#body"><button id="salt_p" type="button" class="btn btn-dark" onclick="AddRow('salt_p','isalt_p')" value="প্যাকেট লবণ" >প্যাকেট লবণ</button></a><br>
+                <input id="isalt_p" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('isalt_p')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="soyabean" type="button" class="btn btn-dark" onclick="AddRow('soyabean','isoyabean')" value="সয়াবিন তেল" >সয়াবিন তেল</button></a><br>
+                <input id="isoyabean" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('isoyabean')">
+              </td>
+              <td>
+                <a href="#body"><button id="sorisha" type="button" class="btn btn-dark" onclick="AddRow('sorisha','isorisha')" value="সরিষার তেল" >সরিষার তেল</button></a><br>
+                <input id="isorisha" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('isorisha')">
+              </td>
+              <td>
+                <a href="#body"><button id="coil" type="button" class="btn btn-dark" onclick="AddRow('coil','icoil')" value="কয়েল" >কয়েল</button></a><br>
+                <input id="icoil" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('icoil')">
+              </td>
+              <td>
+                <a href="#body"><button id="moshur" type="button" class="btn btn-dark" onclick="AddRow('moshur','imoshur')" value="মশুর ডাল" >মশুর ডাল</button></a><br>
+                <input id="imoshur" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('imoshur')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="boot" type="button" class="btn btn-dark" onclick="AddRow('boot','iboot')" value="বুট" >বুট</button></a><br>
+                <input id="iboot" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iboot')">
+              </td>
+              <td>
+                <a href="#body"><button id="pum_k" type="button" class="btn btn-dark" onclick="AddRow('pum_k','ipum_k')" value="পাম ( খুচরা )" >পাম ( খুচরা )</button></a><br>
+                <input id="ipum_k" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ipum_k')">
+              </td>
+              <td>
+                <a href="#body"><button id="pumdum" type="button" class="btn btn-dark" onclick="AddRow('pumdum','ipumdum')" value="পাম ( ড্রাম )" >পাম ( ড্রাম )</button></a><br>
+                <input id="ipumdum" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ipumdum')">
+              </td>
+              <td>
+                <a href="#body"><button id="chini_b" type="button" class="btn btn-dark" onclick="AddRow('chini_b','ichini_b')" value="চিনি ( বস্তা )" >চিনি ( বস্তা )</button></a><br>
+                <input id="ichini_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ichini_b')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="chini_k" type="button" class="btn btn-dark" onclick="AddRow('chini_k','ichini_k')" value="চিনি ( খুচরা )" >চিনি ( খুচরা )</button></a><br>
+                <input id="ichini_k" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ichini_k')">
+              </td>
+              <td>
+                <a href="#body"><button id="pure_dalda" type="button" class="btn btn-dark" onclick="AddRow('pure_dalda','ipure_dalda')" value="পিওর ডালডা" >পিওর ডালডা</button></a><br>
+                <input id="ipure_dalda" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ipure_dalda')">
+              </td>
+              <td>
+                <a href="#body"><button id="pusty_dalda" type="button" class="btn btn-dark" onclick="AddRow('pusty_dalda','ipusty_dalda')" value="পুষ্টি ডালডা" >পুষ্টি ডালডা</button></a><br>
+                <input id="ipusty_dalda" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ipusty_dalda')">
+              </td>
+              <td>
+                <a href="#body"><button id="minar" type="button" class="btn btn-dark" onclick="AddRow('minar','iminar')" value="মিনার" >মিনার</button></a><br>
+                <input id="iminar" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iminar')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="dalim" type="button" class="btn btn-dark" onclick="AddRow('dalim','idalim')" value="ডালিম" >ডালিম</button></a><br>
+                <input id="idalim" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('idalim')">
+              </td>
+              <td>
+                <a href="#body"><button id="bagh" type="button" class="btn btn-dark" onclick="AddRow('bagh','ibagh')" value="বাঘ" >বাঘ</button></a><br>
+                <input id="ibagh" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ibagh')">
+              </td>
+              <td>
+                <a href="#body"><button id="apple" type="button" class="btn btn-dark" onclick="AddRow('apple','iapple')" value="আপেল" >আপেল</button></a><br>
+                <input id="iapple" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iapple')">
+              </td>
+              <td>
+                <a href="#body"><button id="joba" type="button" class="btn btn-dark" onclick="AddRow('joba','ijoba')" value="যবা" >যবা</button></a><br>
+                <input id="ijoba" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ijoba')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="payra" type="button" class="btn btn-dark" onclick="AddRow('payra','ipayra')" value="পায়রা" >পায়রা</button></a><br>
+                <input id="ipayra" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ipayra')">
+              </td>
+              <td>
+                <a href="#body"><button id="sota_b" type="button" class="btn btn-dark" onclick="AddRow('sota_b','isota_b')" value="সোটা ( বস্তা )" >সোটা ( বস্তা )</button></a><br>
+                <input id="isota_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('isota_b')">
+              </td>
+              <td>
+                <a href="#body"><button id="sota_p" type="button" class="btn btn-dark" onclick="AddRow('sota_p','isota_p')" value="সোটা ( খুচরা )" >সোটা ( খুচরা )</button></a><br>
+                <input id="isota_p" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('isota_p')">
+              </td>
+              <td>
+                <a href="#body"><button id="est" type="button" class="btn btn-dark" onclick="AddRow('est','iest')" value="ঈষ্ট" >ঈষ্ট</button></a><br>
+                <input id="iest" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iest')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="amoniya_b" type="button" class="btn btn-dark" onclick="AddRow('amoniya_b','iamoniya_b')" value="এমুনিয়া ( বস্তা )" >এমুনিয়া ( বস্তা )</button></a><br>
+                <input id="iamoniya_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iamoniya_b')">
+              </td>
+              <td>
+                <a href="#body"><button id="amoniya_k" type="button" class="btn btn-dark" onclick="AddRow('amoniya_k','iamoniya_k')" value="এমুনিয়া ( খুচরা )" >এমুনিয়া ( খুচরা )</button></a><br>
+                <input id="iamoniya_k" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iamoniya_k')">
+              </td>
+              <td>
+                <a href="#body"><button id="eraut_b" type="button" class="btn btn-dark" onclick="AddRow('eraut_b','ieraut_b')" value="এরাউট ( বস্তা )" >এরাউট ( বস্তা )</button></a><br>
+                <input id="ieraut_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ieraut_b')">
+              </td>
+              <td>
+                <a href="#body"><button id="eraut_k" type="button" class="btn btn-dark" onclick="AddRow('eraut_k','ieraut_k')" value="এরাউট ( খুচরা )" >এরাউট ( খুচরা )</button></a><br>
+                <input id="ieraut_k" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ieraut_k')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="glucose_b" type="button" class="btn btn-dark" onclick="AddRow('glucose_b','iglucose_b')" value="গ্লুকোজ ( বস্তা )" >গ্লুকোজ ( বস্তা )</button></a><br>
+                <input id="iglucose_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iglucose_b')">
+              </td>
+              <td>
+                <a href="#body"><button id="glucose_p" type="button" class="btn btn-dark" onclick="AddRow('glucose_p','iglucose_p')" value="গ্লুকোজ ( খুচরা )" >গ্লুকোজ ( খুচরা )</button></a><br>
+                <input id="iglucose_p" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iglucose_p')">
+              </td>
+              <td>
+                <a href="#body"><button id="tata_b" type="button" class="btn btn-dark" onclick="AddRow('tata_b','itata_b')" value="টাটা ( বস্তা )" >টাটা ( বস্তা )</button></a><br>
+                <input id="itata_b" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('itata_b')">
+              </td>
+              <td>
+                <a href="#body"><button id="tata_p" type="button" class="btn btn-dark" onclick="AddRow('tata_p','itata_p')" value="টাটা ( খুচরা )" >টাটা ( খুচরা )</button></a><br>
+                <input id="itata_p" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('itata_p')">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#body"><button id="backing_d" type="button" class="btn btn-dark" onclick="AddRow('backing_d','ibacking_d')" value="মাষ্টার বেগিং ( ডজন )" >মাষ্টার বেগিং-ডজন</button></a><br>
+                <input id="ibacking_d" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ibacking_d')">
+              </td>
+              <td>
+                <a href="#body"><button id="backing_p" type="button" class="btn btn-dark" onclick="AddRow('backing_p','ibacking_p')" value="মাষ্টার বেগিং ( প্যাকেট )" >মাষ্টার বেগিং-প্যা:</button></a><br>
+                <input id="ibacking_p" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('ibacking_p')">
+              </td>
+              <td>
+                <a href="#body"><button  id="saccarine" type="button" class="btn btn-dark" onclick="AddRow('saccarine','isaccarine')" value="সেকারিন" >সেকারিন</button></a><br>
+                <input id="isaccarine" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('isaccarine')">
+              </td>
+              <td>
+                <a href="#body"><button id="other" type="button" class="btn btn-dark" onclick="AddRow('other','iother')" value="অন্যান্য" >অন্যান্য</button></a><br>
+                <input id="iother" class="text-center" style="width: 50%;margin-left: 25%;" type="text" name="cd" value="50" onblur="PriceChange('iother')">
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-6 col-md-6" id="product_list1">
+          <h1 class="product_heading pt-2"><strong>খরিদের তথ্য</strong></h1>
+          <form id="p_r_b">
+            <a href="{% url 'c_list' %}"><button type="button" class="btn btn-primary">নাম</button></a>
+            <input type="text" name="c_name" class="name_input" value=" {{render_name.name}}"><br>
+            <a href="{% url 'c_list' %}"><button type="button" class="btn btn-primary" >মোবাইল</button></a>
+            <input type="text" name="c_phone" class="name_input" value=" {{render_name.mobile}}">
+            <button type="button" class="btn btn-primary">Date</button>
+            <input type="text" name="c_phone" class="name_input" value=" {{date}}">
+          </form>
+          
+          <table id="reciept" class="details" cellpadding="0" cellspacing="0">
+            <tr class="details_head">
+              <td style="width: 7%;">সিঃ</td>
+              <td style="width: 30%;">পণ্যের নাম</td>
+              <td style="width: 25%;">পরিমাণ</td>
+              <td style="width: 15%;">দাম</td>
+              <td style="width: 17%;">সর্বমোট</td>
+              <td style="width: 6%;">X</td>
+            </tr>
+            <tr>
+              <td>01</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus('quantity')">+</button></span>
+                  <input id="quantity" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus('quantity')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(1)">X</button> </td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus1('quantity2')">+</button></span>
+                  <input id="quantity2" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus1('quantity2')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(2)">X</button> </td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus2('quantity3')">+</button></span>
+                  <input id="quantity3" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus2('quantity3')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(3)">X</button> </td>
+            </tr>
+            <tr>
+              <td>04</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus3('quantity4')">+</button></span>
+                  <input id="quantity4" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus3('quantity4')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(4)">X</button> </td>
+            </tr>
+            <tr>
+              <td>05</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus4('quantity5')">+</button></span>
+                  <input id="quantity5" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus4('quantity5')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(5)">X</button> </td>
+            </tr>
+            <tr>
+              <td>06</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus5('quantity6')">+</button></span>
+                  <input id="quantity6" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus5('quantity6')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(6)">X</button> </td>
+            </tr>
+            <tr>
+              <td>07</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus6('quantity7')">+</button></span>
+                  <input id="quantity7" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus6('quantity7')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(7)">X</button> </td>
+            </tr>
+            <tr>
+              <td>08</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus7('quantity8')">+</button></span>
+                  <input id="quantity8" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus7('quantity8')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(8)">X</button> </td>
+            </tr>
+            <tr>
+              <td>09</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus8('quantity9')">+</button></span>
+                  <input id="quantity9" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus8('quantity9')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(9)">X</button> </td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus9('quantity10')">+</button></span>
+                  <input id="quantity10" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus9('quantity10')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(10)">X</button> </td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus10('quantity11')">+</button></span>
+                  <input id="quantity11" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus10('quantity11')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(11)">X</button> </td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus11('quantity12')">+</button></span>
+                  <input id="quantity12" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus11('quantity12')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(12)">X</button> </td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus12('quantity13')">+</button></span>
+                  <input id="quantity13" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus12('quantity13')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(13)">X</button> </td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus13('quantity14')">+</button></span>
+                  <input id="quantity14" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus13('quantity14')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(14)">X</button> </td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus14('quantity15')">+</button></span>
+                  <input id="quantity15" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus14('quantity15')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(15)">X</button> </td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus15('quantity16')">+</button></span>
+                  <input id="quantity16" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus15('quantity16')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(16)">X</button> </td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus16('quantity17')">+</button></span>
+                  <input id="quantity17" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus16('quantity17')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(17)">X</button> </td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus17('quantity18')">+</button></span>
+                  <input id="quantity18" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus17('quantity18')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(18)">X</button> </td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus18('quantity19')">+</button></span>
+                  <input id="quantity19" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus18('quantity19')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(19)">X</button> </td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td> </td>
+              <td>
+                <div class="input-group">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Plus19('quantity20')">+</button></span>
+                  <input id="quantity20" class="form-control text-center" type="text" name="quantity" value="0">
+                  <span class="input-group-prepend"><button class="btn btn-info font-weight-bold" onclick="Minus19('quantity20')">-</button></span>
+                </div>
+              </td>
+              <td> </td>
+              <td> </td>
+              <td><button class="btn btn-info" onclick="Delete(20)">X</button> </td>
+            </tr>
+            <tr>
+              <td colspan="3"></td>
+              <td>jer =</td>
+              <td>0</td>
+              <td><button class="btn btn-info" onclick="Delete(21)">X</button> </td>
+            </tr>
+            <tr class="details_head">
+              <td colspan="3"></td>
+              <td>Total =</td>
+              <td>0/-</td>
+              <td></td>
+            </tr>
+            <tr class="details_head">
+              <td colspan="3"></td>
+              <td>joma =</td>
+              <td><input id="deposite" class="text-center" style="width: 100%;" type="text" value=""></td>
+              <td></td>
+            </tr>
+            <tr class="details_head">
+              <td colspan="3"></td>
+              <td>Baki =</td>
+              <td>0</td>
+              <td></td>
+            </tr>
+          </table>
+          <br>
+          <button type="button" class="btn btn-primary" id="submit_btn" onclick="Test()"><i class="fas fa-save"></i>  জমা করুন</button>
+          <a href="{% url 'p_details' %}"><button type="button" class="btn btn-primary" id="submit_btn"><i class="fas fa-sync-alt"></i> Refresh</button></a>
+          <button type="button" class="btn btn-primary" id="submit_btn" onclick="PrintReciept('product_list1')"><i class="fas fa-print"></i>  Print</button>
+          <button type="button" class="btn btn-primary" id="submit_btn" onclick="LastResult()"><i class="fas fa-trash-alt"></i>  Delete</button>
+        </div>
+      </div>
+      <!-- Optional JavaScript -->
+
+
+
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="{% static 'js/product.js' %}" type="text/javascript"></script>
+      <script src="{% static 'js/print.js' %}" type="text/javascript"></script>
+
+
+    </body>
+  </html>
+{% endblock content %}

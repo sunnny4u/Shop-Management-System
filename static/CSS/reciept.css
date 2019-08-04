@@ -1,0 +1,26 @@
+#p_r_b button{
+	width: 17%;
+	margin: 2px;
+}
+.name_input{
+	width: 80%;
+	border: 3px solid #027BCE;
+}
+.details_head{
+	width: 100%;
+	background: #027BCE;
+	color: white;
+	border: 2px solid black;
+}
+.details{
+	width: 100%;
+	text-align: center;
+}
+.details td{
+	border: 1px solid black;
+}
+#submit_btn{
+	width: 20%;
+	text-align: center;
+	margin-left: 10%;
+}

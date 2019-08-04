@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+	<title>Customer List</title>
+{% endblock title %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}">  
+
+  </head>
+  <body>
+  <br>
+	<div>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="container">
+			  <div class="row">
+			    <div class="col-2"><button type="text" class="btn btn-dark">খরিদ্দারের তথ্য</button></div>
+			    <div class="col-4"><input type="text" class="form-control" name="name" placeholder="নাম যোগ দিন"></div>
+			    <div class="col-4"><input type="text" class="form-control" name="mobile" placeholder="মোবাইল নাম্বার"></div>
+			    <div class="col-2"><button type="submit" class="btn btn-primary">লিস্টে তুলুন</button></div>
+			  </div>
+		</form><br>
+	</div>
+	<div class="container">
+		<table class="table text-center table-bordered">
+		  <thead class="thead-dark">
+		  	<tr class="row">
+		      <th class="col-1">সিঃ</th>
+		      <th class="col-4">নাম</th>
+		      <th class="col-2">মোবাইল নাম্বার</th>
+		      <th class="col-2">Purchase info</th>
+		      <th class="col-2">পরিবর্তন</th>
+		      <th class="col-1">মুছুন</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for obj in info %}
+			    <tr class="row">
+			      <td class="col-1">{{ forloop.counter }}</th>
+			      <td class="col-4"><a href="{% url 'name_render' obj.id %}">{{ obj.name }}</a></td>
+			      <td class="col-2">{{ obj.mobile }}</td>
+			      <td class="col-2"><a href="#"><button type="submit" class="btn btn-info">Purchase info</button></a></td>
+			      <td class="col-2"><a href="{% url 'name_edit' obj.id %}"><button type="submit" class="btn btn-info">পরিবর্তন</button></a></td>
+			      <td class="col-1"><a href="{% url 'name_delete' obj.id %}"><button type="submit" class="btn btn-danger">মুছুন</button></a></td>
+			    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>
+	</div>
+		
+  	
+  	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+{% endblock content %}

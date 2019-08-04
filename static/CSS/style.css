@@ -1,0 +1,61 @@
+header{
+	height: 70px;
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+.hbtn{
+	text-align: center;
+}
+.hbtn a{
+	color: inherit;
+}
+.item button{
+	margin: 5px 5px 5px 0px;
+	width: 100%;
+}
+#product_list{
+	width: 50%;
+}
+#product_list, #product_list1{
+	border: 2px solid black;
+}
+.product_heading{
+	text-align: center;
+	color: black;
+	background: #9D5C63;
+	border: 2px solid #584B53;
+}
+#p_r_b button{
+	width: 17%;
+	margin: 2px;
+	color: black;
+}
+.name_input{
+	width: 80%;
+	border: 3px solid #027BCE;
+	color: black;
+}
+.details_head{
+	width: 100%;
+	background: #027BCE;
+	color: black;
+	font-weight: bold;
+}
+.details{
+	width: 100%;
+	text-align: center;
+}
+.details td{
+	border: 1px solid black;
+}
+#submit_btn{
+	width: 20%;
+	color: black;
+	text-align: center;
+	margin-left: 4%;
+}
+#navbarNav li a{
+	margin-left: 35px;
+	font-size: 20px;
+}
