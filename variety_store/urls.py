@@ -7,4 +7,5 @@ urlpatterns = [
     path('delete/<name_id>', views.name_delete, name='name_delete'),
     path('edit/<name_id>', views.name_edit, name='name_edit'),
     path('render/<name_id>', views.name_render, name='name_render'),
+    path('save/<name_id>', views.save_value, name='save_value'),
 ]

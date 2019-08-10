@@ -557,7 +557,7 @@
             </tr>
           </table>
           <br>
-          <button type="button" class="btn btn-primary" id="submit_btn"><i class="fas fa-save" onclick="alert()"></i>  জমা করুন</button>
+          <a href="{% url 'save_value' render_name.id %}"> <button type="button" class="btn btn-primary" id="submit_btn"><i class="fas fa-save"></i>  জমা করুন</button></a>
           <a href="{% url 'p_details' %}"><button type="button" class="btn btn-primary" id="submit_btn"><i class="fas fa-sync-alt"></i> Refresh</button></a>
           <button type="button" class="btn btn-primary" id="submit_btn" onclick="PrintReciept('product_list1')"><i class="fas fa-print"></i>  Print</button>
           <button type="button" class="btn btn-primary" id="submit_btn" onclick="LastResult()"><i class="fas fa-calculator"></i>  Total</button>
@@ -583,3 +583,5 @@
     </body>
   </html>
 {% endblock content %}
+
+        

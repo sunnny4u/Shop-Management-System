@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from variety_store.forms import Listform
-from variety_store.models import CreateList
+from variety_store.forms import Listform, SaveValueForm
+from variety_store.models import CreateList, SaveValueList
 import datetime
 
 # Create your views here.
@@ -44,4 +44,19 @@ def name_edit(request, name_id):
 def name_render(request, name_id):
 	render_name = CreateList.objects.get(pk=name_id)
 	date = datetime.datetime.now()
-	return render(request, 'product.html', {'render_name':render_name, 'date':date})
+	return render(request, 'product1.html', {'render_name':render_name, 'date':date})
+
+
+def save_value(request, name_id):
+	if request.method == 'POST':
+		name = CreateList.objects.get(pk=name_id)
+		form = Listform(request.POST or None, instance=name)
+		if form.is_valid():
+			form.save()
+
+		return redirect('c_list')
+	else:
+		edit_obj = CreateList.objects.get(pk=name_id)
+		form1 = SaveValueForm(request.GET or None)
+		baki = SaveValueList.objects.all
+		return render(request, 'edit1.html', {'edit_obj':edit_obj, 'baki':baki})

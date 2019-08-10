@@ -27,8 +27,9 @@
 			<div class="container">
 			  <div class="row">
 			    <div class="col-2"><button type="text" class="btn btn-dark">খরিদ্দারের তথ্য</button></div>
-			    <div class="col-4"><input type="text" class="form-control" name="name" placeholder="নাম যোগ দিন"></div>
-			    <div class="col-4"><input type="text" class="form-control" name="mobile" placeholder="মোবাইল নাম্বার"></div>
+			    <div class="col-3"><input type="text" class="form-control" name="name" placeholder="নাম যোগ দিন"></div>
+			    <div class="col-3"><input type="text" class="form-control" name="mobile" placeholder="মোবাইল নাম্বার"></div>
+			    <div class="col-2"><input type="text" class="form-control" name="jer" placeholder="jer"></div>
 			    <div class="col-2"><button type="submit" class="btn btn-primary">লিস্টে তুলুন</button></div>
 			  </div>
 		</form><br>
@@ -40,7 +41,7 @@
 		      <th class="col-1">সিঃ</th>
 		      <th class="col-4">নাম</th>
 		      <th class="col-2">মোবাইল নাম্বার</th>
-		      <th class="col-2">Purchase info</th>
+		      <th class="col-2">jer</th>
 		      <th class="col-2">পরিবর্তন</th>
 		      <th class="col-1">মুছুন</th>
 		    </tr>
@@ -51,7 +52,8 @@
 			      <td class="col-1">{{ forloop.counter }}</th>
 			      <td class="col-4"><a href="{% url 'name_render' obj.id %}">{{ obj.name }}</a></td>
 			      <td class="col-2">{{ obj.mobile }}</td>
-			      <td class="col-2"><a href="#"><button type="submit" class="btn btn-info">Purchase info</button></a></td>
+			      <td class="col-2">{{ obj.jer }}</td>
+			      <!--<td class="col-2"><a href="#"><button type="submit" class="btn btn-info">Purchase info</button></a></td>-->
 			      <td class="col-2"><a href="{% url 'name_edit' obj.id %}"><button type="submit" class="btn btn-info">পরিবর্তন</button></a></td>
 			      <td class="col-1"><a href="{% url 'name_delete' obj.id %}"><button type="submit" class="btn btn-danger">মুছুন</button></a></td>
 			    </tr>
